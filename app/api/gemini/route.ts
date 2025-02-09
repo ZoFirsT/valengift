@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/generative-ai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Redis } from '@upstash/redis';
 import { NextResponse, NextRequest } from "next/server";
 
@@ -139,8 +139,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       await redis.setex(cacheKey, 3600, output);
       return NextResponse.json({ output });
 
-    } catch (error: any) {
-      console.error('Content generation error:', error);
+    } catch {
+      console.error('Content generation error:');
       return NextResponse.json(
         { error: "ขออภัย ไม่สามารถวิเคราะห์ได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง" },
         { status: 400 }

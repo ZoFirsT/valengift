@@ -6,9 +6,6 @@ export function middleware(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-page-view', Date.now().toString());
 
-  // Rate limiting
-  const ip = request.ip || 'unknown';
-  const rateLimit = request.headers.get('x-rate-limit');
 
   // Security headers
   const response = NextResponse.next({

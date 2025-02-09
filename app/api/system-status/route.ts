@@ -7,7 +7,6 @@ const redis = new Redis({
 });
 
 const THRESHOLD = 50; // จำนวนคำขอสูงสุดต่อนาที
-const WINDOW = 60; // ระยะเวลาในการนับ (วินาที)
 
 export async function GET() {
   try {

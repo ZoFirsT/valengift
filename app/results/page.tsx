@@ -14,22 +14,6 @@ export default function Results() {
   const decodedData = data ? decodeURIComponent(data) : '';
   const [showShareModal, setShowShareModal] = useState(false);
 
-  const handleShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: 'ผลการวิเคราะห์ของขวัญจาก ValenGift',
-          text: decodedData,
-          url: window.location.href
-        });
-      } catch (error) {
-        console.error('Error sharing:', error);
-      }
-    } else {
-      setShowShareModal(true);
-    }
-  };
-
   const handleDownload = () => {
     const element = document.createElement('a');
     const file = new Blob([decodedData], {type: 'text/plain'});
