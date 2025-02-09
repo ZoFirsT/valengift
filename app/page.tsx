@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaGift, FaHeart, FaSearch } from "react-icons/fa";
+import { BiErrorCircle } from "react-icons/bi";
 
 export default function Home() {
   return (
@@ -119,6 +120,21 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
+
+            {/* Warning Message */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1 }}
+              className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 max-w-2xl mx-auto"
+            >
+              <div className="flex items-center gap-2 text-yellow-700">
+                <BiErrorCircle className="text-xl" />
+                <p className="text-sm">
+                  ⚠️ ระบบอยู่ในช่วงทดลอง อาจพบข้อผิดพลาดบางประการ ขออภัยในความไม่สะดวก
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
