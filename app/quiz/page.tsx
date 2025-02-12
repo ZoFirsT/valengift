@@ -30,7 +30,6 @@ export default function Quiz() {
     setSelectedBudget(budgetId);
     setStep('questions');
     
-    // Confetti effect
     confetti({
       particleCount: 100,
       spread: 70,
@@ -40,7 +39,7 @@ export default function Quiz() {
 
   const formatPayload = (answers: string[]) => {
     return answers.map((choice, index) => {
-      // Convert choice ID (e.g., "1a", "2b") to number (1-4)
+    
       const choiceNumber = ['a', 'b', 'c', 'd'].indexOf(choice.slice(-1)) + 1;
       return `${index + 1}:${choiceNumber}`;
     }).join('\n');
@@ -85,9 +84,9 @@ export default function Quiz() {
   const handleBack = () => {
     if (currentQuestion > 0) {
       setCurrentQuestion(curr => curr - 1);
-      setAnswers(prevAnswers => prevAnswers.slice(0, -1)); // ลบคำตอบล่าสุด
+      setAnswers(prevAnswers => prevAnswers.slice(0, -1));
     } else {
-      setStep('budget'); // ถ้าย้อนกลับจากคำถามแรก ให้กลับไปหน้าเลือกงบประมาณ
+      setStep('budget');
     }
   };
 
@@ -105,7 +104,7 @@ export default function Quiz() {
     };
 
     checkSystemStatus();
-    const interval = setInterval(checkSystemStatus, 30000); // เช็คทุก 30 วินาที
+    const interval = setInterval(checkSystemStatus, 30000);
     return () => clearInterval(interval);
   }, []);
 

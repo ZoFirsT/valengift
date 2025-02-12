@@ -6,25 +6,25 @@ const redis = new Redis({
   token: process.env.UPSTASH_REDIS_REST_TOKEN ?? '',
 });
 
-const THRESHOLD = 50; // จำนวนคำขอสูงสุดต่อนาที
+const THRESHOLD = 50;
 
 export async function GET() {
   try {
-    // นับจำนวนคำขอทั้งหมดในช่วงเวลาที่กำหนด
+   
     const totalRequests = await redis.get<number>('total_requests') ?? 0;
     
-    // คำนวณ % การใช้งานระบบ
+   
     const systemLoad = (totalRequests / THRESHOLD) * 100;
     
-    // ตรวจสอบสถานะระบบ
+   
     const status = {
-      isAvailable: systemLoad < 80, // ถ้าใช้งานน้อยกว่า 80% ถือว่าพร้อมใช้งาน
+      isAvailable: systemLoad < 80,
       load: Math.min(systemLoad, 100),
       message: systemLoad >= 80 
         ? 'ขออภัย ขณะนี้มีผู้ใช้งานจำนวนมาก กรุณารอสักครู่'
         : 'ระบบพร้อมให้บริการ',
       estimatedWaitTime: systemLoad >= 80 
-        ? Math.ceil((systemLoad - 80) / 20) // คำนวณเวลารอโดยประมาณ
+        ? Math.ceil((systemLoad - 80) / 20)
         : 0
     };
 

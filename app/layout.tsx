@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     initialScale: 1,
   },
   verification: {
-    google: "google-site-verification-code", // Add your Google verification code
+    google: "google-site-verification-code",
   },
 };
 

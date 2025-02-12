@@ -31,7 +31,6 @@ export default function QuestionCard({
     setIsAnimating(true);
     setSelectedChoice(choiceId);
     
-    // รอให้แอนิเมชันเสร็จก่อนไปข้อถัดไป
     await new Promise(resolve => setTimeout(resolve, 500));
     onSelect(choiceId);
     setSelectedChoice(null);
@@ -45,14 +44,12 @@ export default function QuestionCard({
       exit={{ opacity: 0, y: -20 }}
       className="bg-white/80 backdrop-blur-lg rounded-xl shadow-lg p-8 relative"
     >
-      {/* Add loading indicator */}
       {loading && (
         <div className="absolute inset-0 bg-white/50 backdrop-blur-sm flex items-center justify-center rounded-xl">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500" />
         </div>
       )}
 
-      {/* Progress */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-2">
           <motion.span

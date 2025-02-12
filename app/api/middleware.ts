@@ -10,17 +10,16 @@ export async function middleware(request: Request) {
   const ip = request.headers.get('x-forwarded-for') ?? 'unknown';
   const key = `ratelimit:${ip}`;
 
-  // นับจำนวนคำขอทั้งหมด
   await redis.incr('total_requests');
-  await redis.expire('total_requests', 60); // รีเซ็ตทุก 1 นาที
+  await redis.expire('total_requests', 60);
 
   const current = await redis.get<number>(key) ?? 0;
   
-  if (current > 10) { // จำกัด 10 requests ต่อ IP ต่อนาที
+  if (current > 10) {
     return new NextResponse('Too Many Requests', { status: 429 });
   }
 
-  await redis.setex(key, 60, current + 1); // หมดอายุใน 60 วินาที
+  await redis.setex(key, 60, current + 1);
   
   return NextResponse.next();
 }

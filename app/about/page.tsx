@@ -32,7 +32,6 @@ export default function About() {
     >
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
-          {/* Header */}
           <motion.div 
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -56,7 +55,6 @@ export default function About() {
               ระบบแนะนำของขวัญอัจฉริยะด้วย AI ที่จะช่วยคุณเลือกของขวัญได้ตรงใจ
             </motion.p>
             
-            {/* Warning Banner */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -73,7 +71,6 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          {/* How it works */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
@@ -157,7 +154,6 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Features */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
@@ -189,7 +185,6 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Technology Stack */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"

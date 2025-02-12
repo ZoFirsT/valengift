@@ -10,7 +10,6 @@ export default function Results() {
   const searchParams = useSearchParams();
   const data = searchParams.get('data');
   
-  // แปลง data จาก URL-encoded string กลับมาเป็นข้อความปกติ
   const decodedData = data ? decodeURIComponent(data) : '';
   const [showShareModal, setShowShareModal] = useState(false);
 
@@ -34,7 +33,6 @@ export default function Results() {
     >
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
-          {/* Result Card */}
           <motion.div 
             className="bg-white/80 backdrop-blur-lg rounded-xl shadow-lg p-8 mb-6"
             initial={{ scale: 0.95 }}
@@ -60,7 +58,6 @@ export default function Results() {
             </div>
           </motion.div>
 
-          {/* Action Buttons */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -95,7 +92,6 @@ export default function Results() {
             </Link>
           </div>
 
-          {/* Share Tips */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -112,7 +108,6 @@ export default function Results() {
         </div>
       </div>
 
-      {/* Share Modal */}
       {showShareModal && (
         <motion.div
           initial={{ opacity: 0 }}

@@ -23,7 +23,7 @@ export interface ShopLink {
 
 export interface PersonalityWeight {
   trait: string;
-  weight: number;  // 0-1 คะแนนความสำคัญของ trait นี้
+  weight: number;
 }
 
 export interface Gift {
@@ -34,13 +34,13 @@ export interface Gift {
     min: number;
     max: number;
   };
-  matchingPersonalities: PersonalityWeight[];  // เปลี่ยนจาก string[] เป็น PersonalityWeight[]
+  matchingPersonalities: PersonalityWeight[];
   imageUrl: string;
   category: string;
   rating: number;
   shopLinks: ShopLink[];
-  giftTags: string[];  // เพิ่ม tags สำหรับการจับคู่เพิ่มเติม
-  occasions: string[];  // เพิ่มโอกาสที่เหมาะสม
+  giftTags: string[];
+  occasions: string[];
 }
 
 export interface GiftCategory {

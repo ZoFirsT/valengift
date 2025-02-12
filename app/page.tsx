@@ -9,7 +9,6 @@ export default function Home() {
     <>
       <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-rose-50 pt-24 overflow-hidden">
         <div className="container mx-auto px-4 relative">
-          {/* Decorative elements */}
           <motion.div
             animate={{
               scale: [1, 1.2, 1],
@@ -121,7 +120,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Warning Message */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
